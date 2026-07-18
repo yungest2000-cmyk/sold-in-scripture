@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sold in Scripture — 50 Biblical Secrets to Money, Business & Influence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#0B2A6B;
+    --blue:#215AE8;
+    --blue-mid:#4B7BFF;
+    --blue-light:#EAF1FF;
+    --blue-pale:#F5F8FF;
+    --ink:#0E1B33;
+    --ink-soft:#4B5A78;
+    --white:#FFFFFF;
+    --line:#DCE6FB;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    color:var(--blue-deep);
+  }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.13em;
+    text-transform:uppercase;
+    color:var(--blue);
+    font-weight:700;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
+ 
+  /* ---------- SCROLL PROGRESS ---------- */
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg, var(--blue), var(--blue-mid));
+    z-index:100; transition:width .1s ease-out;
+  }
+ 
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 28px;}
+  .wordmark{font-family:'Space Mono', monospace; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; color:var(--blue-deep);}
+  .nav-cta{
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+    background:var(--blue); color:var(--white);
+    padding:11px 20px; border-radius:8px; text-decoration:none; font-weight:700;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .nav-cta:hover{transform:translateY(-2px); box-shadow:0 8px 20px -6px rgba(33,90,232,0.55);}
+ 
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:80px 0 96px;
+    background:radial-gradient(circle at 82% 8%, var(--blue-light) 0%, var(--white) 55%);
+  }
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:60px; align-items:center;}
+  .hero h1{font-size:clamp(38px,5vw,56px); line-height:1.05; margin:18px 0 20px;}
+  .hero h1 span{color:var(--blue);}
+  .hero p.lede{font-size:19px; color:var(--ink-soft); max-width:46ch; margin-bottom:30px;}
+  .cta-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--blue); color:var(--white);
+    font-family:'Space Mono', monospace; font-size:13px; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;
+    padding:16px 28px; border-radius:10px; text-decoration:none; border:none; cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px -10px rgba(33,90,232,0.55);}
+  .price-tag{font-family:'Space Mono', monospace; font-size:14px; color:var(--ink-soft);}
+  .price-tag b{color:var(--blue-deep); font-size:16px;}
+ 
+  /* ---------- HERO INTERACTIVE CARD ---------- */
+  .cycler{
+    background:var(--white); border:1px solid var(--line); border-radius:18px;
+    box-shadow:0 30px 60px -28px rgba(11,42,107,0.28);
+    padding:30px 28px; position:relative; min-height:320px;
+  }
+  .cycler-top{display:flex; align-items:center; gap:12px; margin-bottom:16px;}
+  .cycler-num{
+    width:38px; height:38px; border-radius:50%; background:var(--blue-light); color:var(--blue-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Space Mono', monospace; font-weight:700; font-size:13px;
+    flex-shrink:0; transition:background .3s ease;
+  }
+  .cycler-title{font-family:'Bricolage Grotesque', sans-serif; font-size:19px; font-weight:700; color:var(--blue-deep); line-height:1.25;}
+  .cycler-slide{display:none; animation:fadeIn .4s ease;}
+  .cycler-slide.active{display:block;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+  .cycler-verse{font-style:italic; color:var(--ink-soft); font-size:14.5px; margin-bottom:16px; border-left:2px solid var(--blue-light); padding-left:12px;}
+  .cycler-label{font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); font-weight:700; display:block; margin-bottom:4px;}
+  .cycler-row{font-size:15px; margin-bottom:6px;}
+  .cycler-dots{display:flex; gap:8px; justify-content:center; margin-top:22px;}
+  .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--line); border:none; cursor:pointer; padding:0;
+    transition:all .25s ease;
+  }
+  .dot.active{background:var(--blue); width:22px; border-radius:5px;}
+ 
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:92px 0;}
+  section.alt{background:var(--blue-pale);}
+  .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
+  .section-head .eyebrow{display:block; margin-bottom:12px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,38px); line-height:1.15;}
+  .section-head p{color:var(--ink-soft); font-size:17px; margin-top:14px;}
+ 
+  /* ---------- WHO IT'S FOR ---------- */
+  .reader-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .reader-card{
+    background:var(--white); border:1px solid var(--line); border-radius:14px; padding:26px 22px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .reader-card:hover{transform:translateY(-4px); box-shadow:0 20px 34px -20px rgba(11,42,107,0.25);}
+  .reader-icon{
+    width:40px; height:40px; border-radius:10px; background:var(--blue-light); color:var(--blue);
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px; font-size:18px;
+  }
+  .reader-card strong{color:var(--blue-deep); font-family:'Bricolage Grotesque',sans-serif; font-size:17px; display:block; margin-bottom:6px;}
+  .reader-card p{font-size:15px; color:var(--ink-soft);}
+ 
+  /* ---------- THIS IS FOR YOU IF (CHECKLIST) ---------- */
+  .checklist{max-width:680px; margin:0 auto; display:flex; flex-direction:column; gap:16px;}
+  .checklist-item{display:flex; align-items:flex-start; gap:14px; background:var(--white); border:1px solid var(--line); border-radius:12px; padding:18px 20px;}
+  .checklist-item .check{width:26px; height:26px; border-radius:50%; background:var(--blue); color:var(--white); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700;}
+  .checklist-item p{font-size:15.5px; color:var(--ink); margin:0;}
+  .checklist-item p b{color:var(--blue-deep);}
+ 
+  /* ---------- FOUNDER STORY ---------- */
+  .founder{background:var(--blue-pale);}
+  .founder-grid{max-width:680px; margin:0 auto;}
+  .founder-content .eyebrow{display:block; margin-bottom:12px;}
+  .founder-content h2{font-size:clamp(26px,3.2vw,34px); margin-bottom:18px; line-height:1.2;}
+  .founder-content p{color:var(--ink-soft); font-size:16px; margin-bottom:14px; text-align:left;}
+  .founder-sign{font-family:'Bricolage Grotesque',sans-serif; font-weight:700; color:var(--blue-deep); font-size:17px; margin-top:18px; text-align:left;}
+ 
+  /* ---------- GUARANTEE ---------- */
+  .guarantee{text-align:center;}
+  .guarantee-badge{width:64px; height:64px; border-radius:50%; background:var(--blue-light); color:var(--blue); display:flex; align-items:center; justify-content:center; font-size:28px; margin:0 auto 20px;}
+  .guarantee-box{max-width:640px; margin:0 auto; background:var(--white); border:1px solid var(--line); border-radius:16px; padding:36px 32px;}
+  .guarantee-box h2{font-size:clamp(24px,3vw,30px); margin-bottom:14px;}
+  .guarantee-box p{color:var(--ink-soft); font-size:16px;}
+  .guarantee-box .terms-note{font-family:'Space Mono',monospace; font-size:12px; color:var(--blue); margin-top:16px; letter-spacing:0.02em;}
+ 
+  /* ---------- TABS: WHAT'S INSIDE ---------- */
+  .tabs{display:flex; gap:10px; justify-content:center; margin-bottom:36px; flex-wrap:wrap;}
+  .tab-btn{
+    font-family:'Space Mono', monospace; font-size:13px; letter-spacing:0.04em; text-transform:uppercase; font-weight:700;
+    background:var(--white); color:var(--ink-soft); border:1px solid var(--line);
+    padding:12px 20px; border-radius:999px; cursor:pointer; transition:all .2s ease;
+  }
+  .tab-btn.active{background:var(--blue); color:var(--white); border-color:var(--blue);}
+  .tab-panel{display:none; animation:fadeIn .35s ease;}
+  .tab-panel.active{display:block;}
+  .part-summary{text-align:center; max-width:600px; margin:0 auto 32px;}
+  .part-summary p{color:var(--ink-soft); font-size:16px;}
+  .part-count-badge{
+    display:inline-block; font-family:'Space Mono', monospace; font-size:13px; color:var(--blue);
+    background:var(--blue-light); padding:6px 14px; border-radius:999px; margin-top:10px; font-weight:700;
+  }
+  .entry-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .entry-chip{
+    background:var(--white); border:1px solid var(--line); border-radius:12px; padding:18px 18px;
+    font-size:14.5px; color:var(--ink); transition:border-color .2s ease, transform .2s ease;
+  }
+  .entry-chip:hover{border-color:var(--blue-mid); transform:translateY(-2px);}
+  .entry-chip .n{font-family:'Space Mono', monospace; color:var(--blue); font-weight:700; margin-right:6px;}
+ 
+  /* ---------- BONUSES ---------- */
+  .bonus-list{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .bonus-card{
+    background:var(--white); border:1px solid var(--line); border-radius:14px; padding:26px 22px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .bonus-card:hover{transform:translateY(-4px); box-shadow:0 20px 34px -20px rgba(11,42,107,0.25);}
+  .bonus-num{font-family:'Space Mono', monospace; font-size:12px; color:var(--blue); letter-spacing:0.08em; text-transform:uppercase; font-weight:700; margin-bottom:10px; display:block;}
+  .bonus-card h3{font-size:18px; margin-bottom:8px;}
+  .bonus-card p{color:var(--ink-soft); font-size:14.5px;}
+ 
+  /* ---------- PRICING ---------- */
+  .pricing{
+    background:linear-gradient(160deg, var(--blue-deep) 0%, var(--blue) 100%);
+    color:var(--white); text-align:center; padding:100px 0; position:relative; overflow:hidden;
+  }
+  .pricing .eyebrow{color:#BFD3FF;}
+  .pricing h2{color:var(--white); font-size:clamp(30px,4vw,42px); margin:16px 0 20px;}
+  .pricing p.sub{color:#CBDBFF; max-width:52ch; margin:0 auto 40px; font-size:17px;}
+  .price-block{display:inline-flex; align-items:baseline; gap:10px; margin-bottom:8px;}
+  .price-block .amount{font-family:'Bricolage Grotesque', sans-serif; font-size:58px; font-weight:800; color:var(--white);}
+  .price-block .cycle{font-family:'Space Mono', monospace; font-size:13px; color:#CBDBFF;}
+  .pricing .btn-primary{background:var(--white); color:var(--blue-deep); margin-top:28px;}
+  .pricing .btn-primary:hover{box-shadow:0 14px 30px -10px rgba(0,0,0,0.35);}
+  .urgency{font-family:'Space Mono', monospace; font-size:13px; color:#CBDBFF; margin-top:22px;}
+  .urgency b{color:var(--white);}
+ 
+  /* ---------- FAQ ACCORDION ---------- */
+  .faq{max-width:720px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:22px 4px; display:flex; align-items:center; justify-content:space-between;
+    font-family:'Bricolage Grotesque', sans-serif; font-size:17px; font-weight:700; color:var(--blue-deep);
+  }
+  .faq-q .plus{font-family:'Space Mono', monospace; font-size:20px; color:var(--blue); transition:transform .25s ease; flex-shrink:0; margin-left:16px;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding:0 4px 22px; color:var(--ink-soft); font-size:15.5px;}
+ 
+  /* ---------- CLOSING ---------- */
+  .closing{text-align:center; max-width:640px; margin:0 auto;}
+  .closing p{color:var(--ink-soft); font-size:17px; margin-bottom:28px;}
+ 
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:40px 0; text-align:center;}
+  footer p{font-size:13px; color:var(--ink-soft); font-family:'Space Mono', monospace;}
+  footer a{color:var(--blue); text-decoration:none; font-weight:700;}
+ 
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr; gap:44px;}
+    .reader-grid{grid-template-columns:repeat(2,1fr);}
+    .entry-grid{grid-template-columns:1fr;}
+    .bonus-list{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .reader-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+    header.hero{padding:56px 0 64px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .cycler-slide, .tab-panel{animation:none;}
+  }
+</style>
+</head>
+<body>
+ 
+<div id="progress"></div>
+ 
+<nav>
+  <div class="wrap">
+    <span class="wordmark">Sold in Scripture</span>
+    <a class="nav-cta" href="https://selar.com/wo74547730" target="_blank" rel="noopener">Get the Guide</a>
+  </div>
+</nav>
+ 
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">An eBook for Moms · 9–5ers · Students · Freelancers</span>
+      <h1>Money advice that's stood for <span>thousands of years</span> — not thirty days.</h1>
+      <p class="lede">50 Bible-rooted secrets to money, business & influence, explained in plain language, with a real example and one action step each. No jargon. No guilt. No hype.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://selar.com/wo74547730" target="_blank" rel="noopener">Get My Copy — ₦5,000</a>
+        <span class="price-tag">Instant download · Read on any device</span>
+      </div>
+    </div>
+ 
+    <div class="cycler" id="cycler">
+      <div class="cycler-slide active" data-slide="0">
+        <div class="cycler-top"><div class="cycler-num">03</div><div class="cycler-title">Count the Cost Before You Spend</div></div>
+        <p class="cycler-verse">"For which of you, intending to build a tower, sitteth not down first, and counteth the cost." — Luke 14:28</p>
+        <div class="cycler-row"><span class="cycler-label">The Principle</span>Impulse is the enemy of wealth. Stop and calculate first — unexamined spending is what quietly wrecks people.</div>
+        <div class="cycler-row"><span class="cycler-label">Your Action Step</span>Wait 24 hours before your next non-essential purchase and ask: will this matter in 30 days?</div>
+      </div>
+      <div class="cycler-slide" data-slide="1">
+        <div class="cycler-top"><div class="cycler-num">20</div><div class="cycler-title">A Good Name Is Worth More Than Capital</div></div>
+        <p class="cycler-verse">"A good name is rather to be chosen than great riches." — Proverbs 22:1</p>
+        <div class="cycler-row"><span class="cycler-label">Modern Example</span>Two designers start equal. One overpromises. The other delivers early — and a year later has more referrals than she can handle.</div>
+        <div class="cycler-row"><span class="cycler-label">Your Action Step</span>Adjust one promise this week to match what you can actually deliver.</div>
+      </div>
+      <div class="cycler-slide" data-slide="2">
+        <div class="cycler-top"><div class="cycler-num">34</div><div class="cycler-title">Don't Put All Your Hope in One Stream</div></div>
+        <p class="cycler-verse">"Give a portion to seven, and also to eight." — Ecclesiastes 11:2</p>
+        <div class="cycler-row"><span class="cycler-label">Modern Example</span>One freelancer relies on a single client — one lost contract from crisis. Another builds three smaller streams instead.</div>
+        <div class="cycler-row"><span class="cycler-label">Your Action Step</span>List your income sources. Identify a realistic second one to start this month.</div>
+      </div>
+      <div class="cycler-slide" data-slide="3">
+        <div class="cycler-top"><div class="cycler-num">35</div><div class="cycler-title">Small Beginnings Are Not Small</div></div>
+        <p class="cycler-verse">"Who hath despised the day of small things?" — Zechariah 4:10</p>
+        <div class="cycler-row"><span class="cycler-label">The Principle</span>Almost everything that ever mattered started embarrassingly small — and stayed consistent.</div>
+        <div class="cycler-row"><span class="cycler-label">Your Action Step</span>Pick one small financial action to start this week. The size doesn't matter. The start does.</div>
+      </div>
+      <div class="cycler-dots" id="cycler-dots"></div>
+    </div>
+  </div>
+</header>
+ 
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Who This Is For</span>
+      <h2>If money feels like a moving target, this was built for you</h2>
+    </div>
+    <div class="reader-grid">
+      <div class="reader-card"><div class="reader-icon">◐</div><strong>Moms</strong><p>Trying to stretch a budget without losing your mind or your peace.</p></div>
+      <div class="reader-card"><div class="reader-icon">◑</div><strong>9–5ers</strong><p>Whose salary seems to disappear before the month actually ends.</p></div>
+      <div class="reader-card"><div class="reader-icon">◒</div><strong>Students</strong><p>Learning to manage money for the first time, with no real roadmap.</p></div>
+      <div class="reader-card"><div class="reader-icon">◓</div><strong>Freelancers</strong><p>Whose income is unpredictable and whose confidence to sell needs rebuilding.</p></div>
+    </div>
+  </div>
+</section>
+ 
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Is This You?</span>
+      <h2>This is for you if...</h2>
+    </div>
+    <div class="checklist">
+      <div class="checklist-item"><span class="check">&#10003;</span><p>You're <b>tired of money advice that expires</b> — another 30-day challenge, another trend that fizzles out by month three.</p></div>
+      <div class="checklist-item"><span class="check">&#10003;</span><p>You want principles you can actually <b>trust for the long run</b>, not just a quick fix for this month's problem.</p></div>
+      <div class="checklist-item"><span class="check">&#10003;</span><p>You're building something — a business, a side hustle, a career — and want to build it on <b>something steadier than hype</b>.</p></div>
+      <div class="checklist-item"><span class="check">&#10003;</span><p>You want your faith and your finances to <b>speak the same language</b>, instead of living in separate rooms.</p></div>
+      <div class="checklist-item"><span class="check">&#10003;</span><p>You'd rather read <b>one honest page a day</b> than sit through another hour-long course you'll never finish.</p></div>
+    </div>
+  </div>
+</section>
+ 
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What's Inside</span>
+      <h2>50 principles, organized into three parts</h2>
+      <p>Tap a part below to see what's covered.</p>
+    </div>
+ 
+    <div class="tabs" id="tabs">
+      <button class="tab-btn active" data-tab="0">Part One — Money Mindset</button>
+      <button class="tab-btn" data-tab="1">Part Two — Business & Influence</button>
+      <button class="tab-btn" data-tab="2">Part Three — Practical Wealth</button>
+    </div>
+ 
+    <div class="tab-panel active" data-panel="0">
+      <div class="part-summary">
+        <p>The posture that shapes every financial decision you make — contentment, stewardship, patience, and counting the cost before you spend.</p>
+        <span class="part-count-badge">16 secrets</span>
+      </div>
+      <div class="entry-grid">
+        <div class="entry-chip"><span class="n">01</span>Contentment Is a Competitive Advantage</div>
+        <div class="entry-chip"><span class="n">02</span>You're a Steward, Not an Owner</div>
+        <div class="entry-chip"><span class="n">04</span>The Debt Trap Is Slavery in Slow Motion</div>
+        <div class="entry-chip"><span class="n">08</span>Plan Ahead Like the Ant</div>
+        <div class="entry-chip"><span class="n">10</span>Guard Your Heart Against Greed</div>
+        <div class="entry-chip"><span class="n">16</span>Where Your Treasure Is, There Your Heart Will Be</div>
+      </div>
+    </div>
+ 
+    <div class="tab-panel" data-panel="1">
+      <div class="part-summary">
+        <p>Honest selling, reputation, negotiation, and wise counsel — trust-based business, long before "personal branding" was a phrase.</p>
+        <span class="part-count-badge">17 secrets</span>
+      </div>
+      <div class="entry-grid">
+        <div class="entry-chip"><span class="n">17</span>Honest Dealing Is the Original Trust-Based Marketing</div>
+        <div class="entry-chip"><span class="n">20</span>A Good Name Is Worth More Than Capital</div>
+        <div class="entry-chip"><span class="n">21</span>Consistency Beats Hype</div>
+        <div class="entry-chip"><span class="n">26</span>Iron Sharpens Iron</div>
+        <div class="entry-chip"><span class="n">29</span>Let Your Work Speak at the Gates</div>
+        <div class="entry-chip"><span class="n">32</span>Serve First, Sell Second</div>
+      </div>
+    </div>
+ 
+    <div class="tab-panel" data-panel="2">
+      <div class="part-summary">
+        <p>Saving before spending, multiple income streams, avoiding shortcuts that don't last, and building beyond this week.</p>
+        <span class="part-count-badge">17 secrets</span>
+      </div>
+      <div class="entry-grid">
+        <div class="entry-chip"><span class="n">34</span>Don't Put All Your Hope in One Stream</div>
+        <div class="entry-chip"><span class="n">35</span>Small Beginnings Are Not Small</div>
+        <div class="entry-chip"><span class="n">37</span>Beware the Promise of Quick Riches</div>
+        <div class="entry-chip"><span class="n">39</span>Rest Is Part of the Wealth Strategy</div>
+        <div class="entry-chip"><span class="n">44</span>Two Are Better Than One</div>
+        <div class="entry-chip"><span class="n">50</span>Build for the Long Term</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Included Free</span>
+      <h2>Five bonuses that come with every copy</h2>
+    </div>
+    <div class="bonus-list">
+      <div class="bonus-card"><span class="bonus-num">Bonus 01</span><h3>Quick-Reference Card</h3><p>All 50 secrets on one page — save it, screenshot it, keep it close.</p></div>
+      <div class="bonus-card"><span class="bonus-num">Bonus 02</span><h3>5-Day Money Reset</h3><p>A guided WhatsApp/email mini-series walking you through five core principles immediately.</p></div>
+      <div class="bonus-card"><span class="bonus-num">Bonus 03</span><h3>Ask Yourself — Journal Prompts</h3><p>One reflection question per secret, for anyone who wants to sit with it.</p></div>
+      <div class="bonus-card"><span class="bonus-num">Bonus 04</span><h3>Expert Copywriting Course</h3><p>Beginner to pro — learn to write words that sell.</p></div>
+      <div class="bonus-card"><span class="bonus-num">Bonus 05</span><h3>Advanced Video Editing Course</h3><p>Beginner to pro on CapCut and Adobe Premiere Pro.</p></div>
+    </div>
+  </div>
+</section>
+ 
+<section class="founder">
+  <div class="wrap founder-grid">
+    <div class="founder-content">
+      <span class="eyebrow">Why I Made This</span>
+      <h2>I got tired of watching good people copy money advice that wasn't built for them.</h2>
+      <p>I kept seeing the same cycle: someone reads a thread, tries a "hack," it works for a season, then quietly disappears — and they're back to zero, still searching. Meanwhile the same principles kept showing up in scripture, over and over, outlasting every trend I watched come and go.</p>
+      <p>So I sat down and pulled them out — 50 of them, in plain language, with a real example and one action step each. Not theory. Not hype. Just what's actually held up.</p>
+      <p>This is that guide.</p>
+    </div>
+  </div>
+</section>
+ 
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <span class="eyebrow">Get Instant Access</span>
+    <h2>Start with secret #1 tonight</h2>
+    <p class="sub">This won't promise you'll be rich in 30 days. It gives you something steadier — a way of thinking about money that has already outlasted every trend, and will outlast the next one too.</p>
+    <div class="price-block"><span class="amount">₦5,000</span><span class="cycle">one-time payment</span></div>
+    <div><a class="btn-primary" href="https://selar.com/wo74547730" target="_blank" rel="noopener">Yes, I Want This →</a></div>
+    <p class="urgency">Launch bonus: the first <b>50 buyers</b> get the 5-Day Money Reset included free. After that, it's sold separately.</p>
+  </div>
+</section>
+ 
+<section class="guarantee">
+  <div class="wrap">
+    <div class="guarantee-badge">&#128737;</div>
+    <div class="guarantee-box">
+      <h2>Try it. If it's not for you, you're covered.</h2>
+      <p>If this guide doesn't give you at least one idea worth the ₦5,000, message on WhatsApp and get a refund — no long story required.</p>
+      <p class="terms-note">DRAFT TERMS — replace with your actual refund window & conditions</p>
+    </div>
+  </div>
+</section>
+ 
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Questions</span>
+      <h2>Before you decide</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q">Is this a course or a book?<span class="plus">+</span></button>
+        <div class="faq-a"><p>It's a written guide (eBook) — 50 short entries you read at your own pace, plus five bonus resources delivered alongside it.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is this different from other money guides?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Most money content is trend-driven and expires fast. This is built entirely on principles that have held up for thousands of years, translated into plain, modern examples and action steps.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I get the bonuses?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Access details for all five bonuses are included in your order confirmation immediately after purchase.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if it's not for me?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Message directly on WhatsApp before or after buying — happy to answer questions or sort things out.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="alt">
+  <div class="wrap closing">
+    <span class="eyebrow">Still Deciding?</span>
+    <h2 style="margin:16px 0 22px;">Not a course. Not 100 shallow tips.</h2>
+    <p>It's 50 real principles — organized into three clear parts, each with a story and an action step — plus five bonuses, all for ₦5,000.</p>
+    <a class="btn-primary" href="https://selar.com/wo74547730" target="_blank" rel="noopener" style="background:var(--blue-deep);">Get My Copy — ₦5,000</a>
+  </div>
+</section>
+ 
+<footer>
+  <div class="wrap">
+    <p>Questions before you buy? Message on WhatsApp — <a href="https://wa.me/2349158563340">click here to chat</a></p>
+  </div>
+</footer>
+ 
+<script>
+  // Scroll progress bar
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement;
+    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    document.getElementById('progress').style.width = scrolled + '%';
+  });
+ 
+  // Hero cycler
+  (function(){
+    var slides = document.querySelectorAll('.cycler-slide');
+    var dotsWrap = document.getElementById('cycler-dots');
+    var current = 0;
+    var timer;
+ 
+    slides.forEach(function(_, i){
+      var d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', function(){ goTo(i); resetTimer(); });
+      dotsWrap.appendChild(d);
+    });
+    var dots = dotsWrap.querySelectorAll('.dot');
+ 
+    function goTo(i){
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = i;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    function next(){ goTo((current + 1) % slides.length); }
+    function resetTimer(){ clearInterval(timer); timer = setInterval(next, 4500); }
+    resetTimer();
+  })();
+ 
+  // Tabs
+  (function(){
+    var btns = document.querySelectorAll('.tab-btn');
+    var panels = document.querySelectorAll('.tab-panel');
+    btns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        btns.forEach(function(b){ b.classList.remove('active'); });
+        panels.forEach(function(p){ p.classList.remove('active'); });
+        btn.classList.add('active');
+        document.querySelector('.tab-panel[data-panel="' + btn.dataset.tab + '"]').classList.add('active');
+      });
+    });
+  })();
+ 
+  // FAQ accordion
+  (function(){
+    document.querySelectorAll('.faq-item').forEach(function(item){
+      var q = item.querySelector('.faq-q');
+      var a = item.querySelector('.faq-a');
+      q.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+          i.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if(!isOpen){
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
+</script>
+ 
+</body>
+</html>
